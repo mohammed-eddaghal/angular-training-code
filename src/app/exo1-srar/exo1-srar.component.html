@@ -1,0 +1,33 @@
+<!--
+    ajouter je script a header dans index.html
+    <script src="https://kit.fontawesome.com/8f4740683c.js" crossorigin="anonymous"></script>
+-->
+<p>exo1-srar works!</p>
+<br>
+<span
+(click)="fnc()"
+ [title]="isTxt"
+ class="fa-star fa-10x"
+ [ngClass]="{
+     'far':!isFavorit,
+     'fas':isFavorit
+ }"
+ [ngStyle]="{
+     'color':isFavorit?'gold':'black',
+     'font-size':isFavorit?'60px':'40px'
+ }"
+>
+<!--
+                                             [ngClass]="{
+        [class.far]="!isFavorit" 
+                                <=======>      'far':!isFavorit,
+        [class.fas]="isFavorit"                'fas':isFavorit 
+                                           }"
+
+    -du même que [class.nom-class] <==> [ngClass]="{}"
+    kain [ngStyle]<====> [style.tag-style]
+    n9ado n3wdo proprity binding d [class.nom-de-class] li 5as nb9aw n3awdoha 3la 9ad ch7al mn class bghina
+    ndiro 3liha had l3iba b proprity [ngClass]={}
+    -entre {} kandiro les differnets class dyalna li bghina ndirohom dynamique
+-->
+</span>

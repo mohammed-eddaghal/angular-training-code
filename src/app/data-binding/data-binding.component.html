@@ -1,0 +1,18 @@
+<p>data-binding works!</p>
+<!--
+     dans le cas d'utilisation de [value]="email" la tempate recevoie la valeur li 3tinaha f component
+    ms man9doch mli nbadlo la valeur f template n affictiw dik valeur jdida l var li f component
+        <input [value]="email" type="text" (keyUp.enter)="fnc(email)">
+
+
+     bach n5admo ngModule, on doit importé FormsModule apartir de @angular/forms
+            import {FormsModule} from "@angular/forms"
+    et dans imports[]  on doit ajouté FormsModule
+
+-->
+<input [(ngModel)]="email" type="text" (keyUp.enter)="fnc(email)">
+{{email}}
+<!--  
+    haka b9ado ndiro dataBinding  component <-> template
+
+-->

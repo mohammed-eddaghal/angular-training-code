@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="col-md-6 col md offset-3">
+        <div *ngFor="let follower of followers">
+            <div class="media">
+                <img class="avatar media-object" alt="jonrohan" src="{{follower.avatar_url}}" width="72" height="72">
+                <div class="media-body">
+                    <h5 class="mt-0">{{follower.login}}</h5>
+                    <a [routerLink]="['/follower',follower.id]" 
+                       [queryParams]="{
+                        id:follower.id,
+                        type:follower.type
+                    }">
+                        {{follower.html_url}}
+                    </a>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

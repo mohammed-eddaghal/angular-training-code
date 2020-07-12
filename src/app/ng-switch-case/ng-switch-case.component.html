@@ -1,0 +1,25 @@
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="viewCour=='Angular'" (click)="viewCour='Angular'">Angular</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="viewCour=='Laravel'" (click)="viewCour='Laravel'">Laravel</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="viewCour=='Symfony'" (click)="viewCour='Symfony'">Symfony</a>
+    </li>
+</ul>
+<div [ngSwitch]="viewCour">
+    <div *ngSwitchCase="'Angular'">
+        Lorem Angular
+    </div>
+    <div *ngSwitchCase="'Laravel'">
+        Lorem Laravel
+    </div>
+    <div *ngSwitchCase="'Symfony'">
+        Lorem Symfony
+    </div>
+    <div *ngSwitchDefault>
+        autre chose...
+    </div>
+</div>

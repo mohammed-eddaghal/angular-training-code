@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="col-md-6 col md offset-3">
+        <form [formGroup]="form">
+            <div class="form-group">
+                <label for="email">User Name</label>
+                <input formControlName="userName" type="text" class="form-control" id="email"
+                    aria-describedby="emailHelp">
+                <div class="alert alert-danger" *ngIf="form.get('userName').touched && form.get('userName').invalid">
+                    <div *ngIf="form.get('userName').errors.required"> le champe aublig</div>
+                    <div *ngIf="form.get('userName').errors.cannotContainSpace"> le champ ne doit pas avoir des espaces</div>
+                </div>
+
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input formControlName="passeword" type="password" class="form-control" id="password">
+                <div class="alert alert-danger" *ngIf="form.get('passeword').touched && form.get('passeword').invalid">
+                    le champ est aubligatoire!!!
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+        </form>
+    </div>
+</div>

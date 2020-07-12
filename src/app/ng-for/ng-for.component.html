@@ -1,0 +1,26 @@
+
+<!--
+    ngFor 3ndha wa7d liaison direct m3a variable 3lach katbocli
+    ex
+        f Courses ila matalan tzad wa7d element fiha fa ghiban direct f affichage may7tajch nrefrichiw l 
+        page 
+-->
+
+<!--
+    ngFor tracking
+        bach ntb3o dakchi li kiboucli 3lih ngFor
+        knzido l *ngFor=" let...;trackBy:nom_methode"
+    -comme ça ila matalan drna load o kano nafs les element li kainin f affichage maghidir walo
+    haka knoptimisiw code ex ila kana knjibo data mn server man7tajch nsift requet o hya ghtjib nafs data
+    de had trackBy kathnina o ila kan jadid katjib ghi dakchi li zayd
+-->
+<button class="btn btn-secondary" (click)="loadCourses()">Load</button>
+<ul>
+    <li *ngFor="let course of Courses;index as i;first as x;last as y; trackBy:trackCourse">
+        <span *ngIf=x>first-</span>
+        <span *ngIf=y>last-</span>
+        <p>index d'element dans le tableau est : {{i}}</p>
+        <p>id: {{course.id}}</p><h3>title: {{course.title}}</h3>
+        <button class="btn btn-danger" (click)="removeCourse(i)">deleat</button>
+    </li>
+</ul>

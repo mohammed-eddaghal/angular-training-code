@@ -1,0 +1,43 @@
+<!--
+     ^
+    / \
+   / | \    on peut appliqué plusieurs pipes sur un attribut
+  /  .  \
+  -------
+-->
+
+<input [(ngModel)]="email" type="text" (keyUp.enter)="fnc(email)">
+<br>
+{{email}}
+<br>
+{{email | uppercase}}
+<!--
+    uppercase => pour rendre String tous en MAJ
+-->
+<br>
+{{email|lowercase}}
+<!--
+    lowercase => pour rendre String tous en miniscule
+-->
+<br>
+{{rate|number:'1.2-2'}}
+<!--
+     number rendre la String comme number
+     number:'1.2-2' => rendre la String comme int qui accepte pour la partie entier 1 seul nombre et
+    pour la partie décimale accépte 2 nombre au minimum et au maximum aprés la virgule
+-->
+{{prix|currency:'EUR':'code'}}
+<!--
+    currency est affiche la currency de prix (par défaut il y a USD $)
+    pour changer le type de currency on utilise le ISO-3 de la currency ex
+        {{prix |currency:'EUR'}} => pour euro affiche le symbole, pour afficher le code on utilise
+        {{prix| currency:'EUR':'code'}}
+-->
+<br>
+{{date | date}}
+<!--
+    pour afficher selement la date on utilise le pipe date affiche date avec jour et mois string short format 
+    pipe {{date|date:'fullDate'}} affiche la date avec jour et mois complet en string
+    {{date|date:'shortDate'}} affiche le date sous forme de int/int/int ex 12/21/2020
+    {{date|date:'yyyy-mm-dd'}} affiche la date sous format yyyy-mm-dd, de même en peut spésifier n'import qu'elle format de date
+-->

@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="col-md-6 col md offset-3">
+        <form #f="ngForm" (ngSubmit)="submt(f)">
+
+            <div ngModelGroup="preson">
+                <div class="form-group">
+                    <label for="Name">Nom</label>
+                    <!--required pour rendre le champ aubligatoir-->
+                    <!--style li kitapplica f cas d error ra kin f style.css (fichier de style globale d projet)-->
+                    <input required minlength="4" maxlength="10" pattern="[a-zA-Z]+" ngModel name="name" #name="ngModel"
+                        type="text" class="form-control" id="Name" placeholder="Name">
+                    <!--<div class="alert alert-danger" *ngIf="name.touched && !name.valid">-->
+                    <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+                        <div *ngIf="name.errors.required"> ce champ est aubligatoir!!!</div>
+                        <div *ngIf="name.errors.minlength">ce champ accept comme minimum de char
+                            {{name.errors.minlength.actualLength}}/{{name.errors.minlength.requiredLength}}</div>
+                        <div *ngIf="name.errors.pattern"> ce champ accepte que des alpha!!</div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="prenom">prenom</label>
+                    <!--required pour rendre le champ aubligatoir-->
+
+                    <!--style li kitapplica f cas d error ra kin f style.css (fichier de style globale d projet)-->
+                    <input required minlength="4" maxlength="10" pattern="[a-zA-Z]+" ngModel name="prenom"
+                        #prenom="ngModel" type="text" class="form-control" id="prenom"
+                        placeholder="prenom">
+                    <!--<div class="alert alert-danger" *ngIf="name.touched && !name.valid">-->
+                    <div class="alert alert-danger" *ngIf="prenom.touched && !prenom.valid">
+                        <div *ngIf="prenom.errors.required"> ce champ est aubligatoir!!!</div>
+                        <div *ngIf="prenom.errors.minlength">ce champ accept comme minimum de char
+                            {{prenom.errors.minlength.actualLength}}/{{prenom.errors.minlength.requiredLength}}</div>
+                        <div *ngIf="prenom.errors.pattern"> ce champ accepte que des alpha!!</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="groupAge">groupe d'age</label>
+                    <select ngModel class="form-control" name="groupAge" id="groupAge">
+                        <option *ngFor="let age of groupAge" [ngValue]="age">{{age.age}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="groupAge">groupe d'age (pour la selection multiple ctrl+click sur choix)</label>
+                    <select multiple ngModel class="form-control" name="groupAge" id="groupAge">
+                        <option *ngFor="let age of groupAge" [ngValue]="age">{{age.age}}</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input ngModel name="fan" #fan="ngModel" type="checkbox" value="false">Fan
+                </label>
+            </div>
+
+            <div class="form-check" *ngFor="let methode of contact">
+                <input class="form-check-input" type="radio" ngModel name="contact" id="contact" [value]="methode.id" checked>
+                <label class="form-check-label" for="contact">
+                  {{methode.methode}}
+                </label>
+              </div>
+
+            <div class="form-group">
+                <label for="Comment">Comment</label>
+                <textarea required ngModel name="comment" #comment="ngModel" class="form-control" id="Comment"
+                    placeholder="Comment"></textarea>
+                <!--<div class="alert alert-danger" *ngIf="comment.touched && !comment.valid">champ aubligatoire!!</div>-->
+                <div class="alert alert-danger" *ngIf="comment.touched && !comment.valid">
+                    <div *ngIf="comment.errors.required"> ce champ est aubligatoir!!!</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-outline-primary" [disabled]="name.invalid || prenom.invalid || comment.invalid">Submit</button>
+            </div>
+        </form>
+
+        <p>{{f.value|json}}</p>
+        <p>{{msg}}</p>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<!--
+le meme code que le suivant
+
+    <div *ngIf="Courses.length>0;else noCourses">
+    list Coure
+</div>
+<ng-template #noCourses>
+    pas de coures
+</ng-template>
+-->
+
+<div *ngIf="Courses.length>0;then coure else pasCoure"></div>
+<ng-template #coure>
+    list coure
+</ng-template>
+<ng-template #pasCoure></ng-template>
